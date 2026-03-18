@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f0f0f;
+  --primary: #1a1a1a;
+  --secondary: #f0f0f0;
+  --accent: #7c3aed;
+  --border: #e5e5e5;
+  --muted: #a0a0a0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f0f0f;
+    --foreground: #ffffff;
+    --primary: #ffffff;
+    --secondary: #1a1a1a;
+    --accent: #a78bfa;
+    --border: #333333;
+    --muted: #666666;
+  }
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground font-sans transition-colors duration-300;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-background hover:opacity-90;
+  }
+
+  .btn-secondary {
+    @apply btn border border-border text-foreground hover:bg-secondary;
+  }
+
+  .container-max {
+    @apply max-w-6xl mx-auto px-4 md:px-8;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent via-accent to-primary bg-clip-text text-transparent;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
